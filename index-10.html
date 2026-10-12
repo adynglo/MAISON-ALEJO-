@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAISON | ALEJO — Ropa urbana para hombre</title>
+  <meta name="description" content="MAISON | ALEJO: moda masculina urbana, juvenil y premium. Explora buzos, camisetas, pantalones, gorras y tenis.">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ICONOS SVG (sprite ligero, reutilizable con <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true" focusable="false" width="0" height="0">
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.800-8 11-8 11z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-cart" viewBox="0 0 24 24"><path d="M3 4h3l2.500 11h10l2-8H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.500" cy="19.500" r="1.500" fill="currentColor"/><circle cx="17.500" cy="19.500" r="1.500" fill="currentColor"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
+
+  <!-- ENCABEZADO -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#inicio" aria-label="MAISON | ALEJO, ir al inicio">MAISON <span class="brand__divider">|</span> ALEJO</a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-open="false">
+        <ul class="main-nav__list">
+          <li><a class="main-nav__link is-active" href="#inicio" aria-current="page">Inicio</a></li>
+          <li><a class="main-nav__link" href="#categorias">Categorías</a></li>
+          <li><a class="main-nav__link" href="#catalogo">Tienda</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <details class="header-search" id="search-panel">
+          <summary class="icon-button" aria-label="Buscar y ordenar productos">
+            <svg class="icon" aria-hidden="true"><use href="#icon-search"/></svg>
+          </summary>
+          <div class="header-search__panel" role="search">
+            <form class="search-form" id="search-form" novalidate>
+            <div class="field field--search">
+              <label class="field__label" for="catalog-search">Buscar producto</label>
+              <input class="field__input" type="search" id="catalog-search" name="q" placeholder="Ej: buzo, gorra, tenis" autocomplete="off" enterkeyhint="search">
+            </div>
+            <div class="field field--sort">
+              <label class="field__label" for="catalog-sort">Ordenar por</label>
+              <select class="field__input" id="catalog-sort" name="orden">
+                <option value="relevancia">Relevancia</option>
+                <option value="novedad">Novedades</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+                <option value="nombre">Nombre (A-Z)</option>
+              </select>
+            </div>
+            <div class="search-actions">
+              <button type="submit" class="button button--primary">BUSCAR</button>
+              <button type="button" class="button button--ghost" data-action="reset-filters">LIMPIAR</button>
+            </div>
+            </form>
+          </div>
+        </details>
+        <button type="button" class="icon-button" id="btn-favorites" aria-label="Ver favoritos" data-action="open-favorites">
+          <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg>
+          <span class="badge" id="favorites-count" aria-hidden="true">0</span>
+        </button>
+        <button type="button" class="icon-button" id="btn-cart" aria-label="Abrir carrito, 0 unidades" aria-expanded="false" aria-controls="cart-panel" data-action="toggle-cart">
+          <svg class="icon" aria-hidden="true"><use href="#icon-cart"/></svg>
+          <span class="badge" id="cart-count" aria-hidden="true">0</span>
+        </button>
+        <button type="button" class="icon-button menu-toggle" id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav" data-action="toggle-menu">
+          <svg class="icon" aria-hidden="true"><use href="#icon-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+
+    <!-- BANNER PRINCIPAL -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <div class="hero__slide is-active" data-slide="1">
+          <img class="hero__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Crect width='16' height='9' fill='%231a1a1a'/%3E%3C/svg%3E" data-src="banner.webp" alt="Hombre con gorra y buzo negro frente a un edificio oscuro con luces cálidas" width="1774" height="887" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+      <div class="hero__content" data-reveal>
+        <h1 class="hero__title" id="hero-title">TU PRESENCIA HABLA POR TI</h1>
+        <p class="hero__text">Ropa urbana para hombre. Elige tu prenda, tu talla y haz tu pedido en pocos pasos.</p>
+        <a class="button button--primary" href="#catalogo">VER COLECCIÓN</a>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS: fila horizontal deslizable (scroll táctil nativo) -->
+    <section class="categories" id="categorias" aria-labelledby="categories-title">
+      <div class="container">
+        <h2 class="section-title" id="categories-title">Categorías</h2>
+      </div>
+      <ul class="categories__track" aria-label="Categorías de productos">
+          <li class="category-card category-card--all">
+            <a class="category-card__link" href="#catalogo" data-filter-category="todas">
+              <img class="category-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="categoria-todo.webp" alt="Hombre con buzo negro, pantalón cargo y tenis frente a un edificio oscuro, categoría Todo" width="400" height="500" loading="lazy" decoding="async">
+              <span class="category-card__name">Todo</span>
+            </a>
+          </li>
+          <li class="category-card" data-category="buzos">
+            <a class="category-card__link" href="#catalogo" data-filter-category="buzos">
+              <img class="category-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="categoria-buzos.webp" alt="Hombre con buzo negro con capucha, categoría Buzos" width="400" height="500" loading="lazy" decoding="async">
+              <span class="category-card__name">Buzos</span>
+            </a>
+          </li>
+          <li class="category-card" data-category="camisetas">
+            <a class="category-card__link" href="#catalogo" data-filter-category="camisetas">
+              <img class="category-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="categoria-camisetas.webp" alt="Hombre con camiseta negra oversize, categoría Camisetas" width="400" height="500" loading="lazy" decoding="async">
+              <span class="category-card__name">Camisetas</span>
+            </a>
+          </li>
+          <li class="category-card" data-category="pantalones">
+            <a class="category-card__link" href="#catalogo" data-filter-category="pantalones">
+              <img class="category-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="categoria-pantalones.webp" alt="Pantalón cargo negro con tenis blancos y negros, categoría Pantalones" width="400" height="500" loading="lazy" decoding="async">
+              <span class="category-card__name">Pantalones</span>
+            </a>
+          </li>
+          <li class="category-card" data-category="gorras">
+            <a class="category-card__link" href="#catalogo" data-filter-category="gorras">
+              <img class="category-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="categoria-gorras.webp" alt="Hombre ajustando una gorra negra, categoría Gorras" width="400" height="500" loading="lazy" decoding="async">
+              <span class="category-card__name">Gorras</span>
+            </a>
+          </li>
+          <li class="category-card" data-category="tenis">
+            <a class="category-card__link" href="#catalogo" data-filter-category="tenis">
+              <img class="category-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="categoria-tenis.webp" alt="Hombre atándose unos tenis blancos y negros, categoría Tenis" width="400" height="500" loading="lazy" decoding="async">
+              <span class="category-card__name">Tenis</span>
+            </a>
+          </li>
+      </ul>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <section class="catalog" id="catalogo" aria-labelledby="catalog-title">
+      <div class="container">
+        <h2 class="section-title" id="catalog-title" data-reveal>PRODUCTOS</h2>
+
+        <p class="catalog__count" id="catalog-count" role="status" aria-live="polite">Mostrando <span id="catalog-count-number">2</span> productos de demostración</p>
+
+        <!-- DATOS DE DEMOSTRACIÓN: reemplazar por el catálogo real (nombre, precio, tallas, colores, fotos) -->
+        <div class="product-grid" id="product-grid">
+
+          <article class="product-card" id="product-card-demo-001" data-product-id="demo-001" data-category="buzos" data-name="Producto de demostración 1" data-price="0" data-new="true" data-demo="true" data-reveal>
+            <div class="product-card__media">
+              <img class="product-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="REEMPLAZAR-producto-1.jpg" alt="Espacio reservado: fotografía del producto de demostración 1" width="400" height="500" loading="lazy" decoding="async">
+              <span class="product-card__tag">Novedad</span>
+              <button type="button" class="icon-button product-card__favorite" data-action="toggle-favorite" aria-pressed="false" aria-label="Añadir Producto de demostración 1 a favoritos">
+                <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg>
+              </button>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name"><button type="button" class="product-card__name-link" data-action="view-product" data-product-id="demo-001" aria-controls="product-detail">Producto de demostración 1</button></h3>
+              <p class="product-card__price" data-price-display>Precio por definir</p>
+              <fieldset class="option-group">
+                <legend class="option-group__legend">Talla</legend>
+                <div class="option-group__list">
+                  <button type="button" class="option-button" data-size="S" aria-pressed="false">S</button>
+                  <button type="button" class="option-button" data-size="M" aria-pressed="false">M</button>
+                  <button type="button" class="option-button" data-size="L" aria-pressed="false">L</button>
+                </div>
+              </fieldset>
+              <fieldset class="option-group">
+                <legend class="option-group__legend">Color</legend>
+                <div class="option-group__list">
+                  <button type="button" class="option-button option-button--color" data-color="negro" aria-pressed="false" aria-label="Color negro (demostración)">Negro</button>
+                  <button type="button" class="option-button option-button--color" data-color="gris" aria-pressed="false" aria-label="Color gris (demostración)">Gris</button>
+                </div>
+              </fieldset>
+              <div class="product-card__actions">
+                <button type="button" class="button button--primary" data-action="add-to-cart" data-product-id="demo-001">AÑADIR AL CARRITO</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" id="product-card-demo-002" data-product-id="demo-002" data-category="gorras" data-name="Producto de demostración 2" data-price="0" data-new="false" data-demo="true" data-reveal>
+            <div class="product-card__media">
+              <img class="product-card__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" data-src="REEMPLAZAR-producto-2.jpg" alt="Espacio reservado: fotografía del producto de demostración 2" width="400" height="500" loading="lazy" decoding="async">
+              <button type="button" class="icon-button product-card__favorite" data-action="toggle-favorite" aria-pressed="false" aria-label="Añadir Producto de demostración 2 a favoritos">
+                <svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg>
+              </button>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name"><button type="button" class="product-card__name-link" data-action="view-product" data-product-id="demo-002" aria-controls="product-detail">Producto de demostración 2</button></h3>
+              <p class="product-card__price" data-price-display>Precio por definir</p>
+              <!-- Sin selector de talla ni color: se agregan solo cuando correspondan al producto real -->
+              <div class="product-card__actions">
+                <button type="button" class="button button--primary" data-action="add-to-cart" data-product-id="demo-002">AÑADIR AL CARRITO</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Estado sin resultados -->
+        <div class="catalog__empty" id="catalog-empty" hidden>
+          <p class="catalog__empty-title">No encontramos productos con esa búsqueda.</p>
+          <p class="catalog__empty-text">Prueba con otro nombre o quita los filtros.</p>
+          <button type="button" class="button button--secondary" data-action="reset-filters">QUITAR FILTROS</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALLE DEL PRODUCTO (oculto hasta que script.js lo abra) -->
+    <section class="product-detail" id="product-detail" aria-labelledby="detail-title" hidden data-product-id="">
+      <div class="container product-detail__inner">
+        <button type="button" class="button button--ghost" id="detail-back" data-action="close-product">VOLVER AL CATÁLOGO</button>
+
+        <div class="product-detail__layout">
+          <div class="product-gallery" id="detail-gallery" aria-label="Galería de imágenes del producto">
+            <img class="product-gallery__main" id="detail-main-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" alt="" width="600" height="750" decoding="async">
+            <ul class="product-gallery__thumbs" id="detail-thumbs"><!-- Miniaturas: las genera script.js --></ul>
+          </div>
+
+          <div class="product-detail__info">
+            <h2 class="product-detail__name" id="detail-title">Nombre del producto</h2>
+            <p class="product-detail__price" id="detail-price">Precio por definir</p>
+            <p class="product-detail__description" id="detail-description">Descripción pendiente de configurar.</p>
+            <p class="product-detail__availability" id="detail-availability" hidden>Disponibilidad: por confirmar</p>
+
+            <fieldset class="option-group">
+              <legend class="option-group__legend">Talla</legend>
+              <div class="option-group__list" id="detail-sizes"><!-- Opciones: las genera script.js --></div>
+            </fieldset>
+            <fieldset class="option-group">
+              <legend class="option-group__legend">Color</legend>
+              <div class="option-group__list" id="detail-colors"><!-- Opciones: las genera script.js --></div>
+            </fieldset>
+
+            <div class="field field--quantity">
+              <label class="field__label" for="detail-quantity">Cantidad</label>
+              <input class="field__input" type="number" id="detail-quantity" name="cantidad" min="1" max="10" value="1" inputmode="numeric">
+            </div>
+
+            <div class="product-detail__actions">
+              <button type="button" class="button button--primary" id="detail-add" data-action="add-to-cart-detail">AÑADIR AL CARRITO</button>
+              <button type="button" class="button button--ghost" id="detail-size-guide-btn" data-action="open-size-guide" aria-expanded="false" aria-controls="size-guide">GUÍA DE TALLAS</button>
+            </div>
+
+            <!-- Guía de tallas: contenido pendiente de confirmar -->
+            <div class="size-guide" id="size-guide" role="region" aria-label="Guía de tallas" hidden>
+              <p>La guía de tallas se publicará cuando se confirmen las medidas reales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- CARRITO DE COMPRAS (panel lateral) -->
+  <div class="overlay" id="overlay" hidden data-action="close-panels"></div>
+  <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" aria-hidden="true" data-open="false" tabindex="-1">
+    <div class="cart-panel__header">
+      <h2 class="cart-panel__title" id="cart-title">Tu carrito</h2>
+      <button type="button" class="icon-button" id="cart-close" aria-label="Cerrar carrito" data-action="close-cart">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+
+    <p class="cart-panel__empty" id="cart-empty">Tu carrito está vacío. Añade una prenda para empezar.</p>
+
+    <ul class="cart-list" id="cart-list" aria-label="Productos en el carrito">
+      <!-- Plantilla de línea de carrito: script.js la clona para cada producto -->
+    </ul>
+
+    <template id="cart-item-template">
+      <li class="cart-item" data-product-id="" data-size="" data-color="">
+        <img class="cart-item__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Crect width='4' height='5' fill='%23222'/%3E%3C/svg%3E" alt="" width="72" height="90" loading="lazy" decoding="async">
+        <div class="cart-item__info">
+          <p class="cart-item__name"></p>
+          <p class="cart-item__variant"><span class="cart-item__size"></span> <span class="cart-item__color"></span></p>
+          <p class="cart-item__price"></p>
+        </div>
+        <div class="cart-item__controls">
+          <button type="button" class="qty-button" data-action="decrease-qty" aria-label="Disminuir cantidad">−</button>
+          <span class="cart-item__qty" aria-live="polite">1</span>
+          <button type="button" class="qty-button" data-action="increase-qty" aria-label="Aumentar cantidad">+</button>
+          <button type="button" class="button button--ghost cart-item__remove" data-action="remove-item">Eliminar</button>
+        </div>
+      </li>
+    </template>
+
+    <div class="cart-panel__footer">
+      <p class="cart-panel__subtotal"><span>Subtotal</span> <strong id="cart-subtotal">—</strong></p>
+      <button type="button" class="button button--secondary" id="cart-continue-shopping" data-action="close-cart">CONTINUAR COMPRANDO</button>
+      <details class="checkout" id="pedido">
+        <summary class="button button--primary">CONTINUAR AL PEDIDO</summary>
+        <div class="checkout__body">
+        <form class="order-form" id="order-form" novalidate>
+                  <div class="field">
+                    <label class="field__label" for="order-name">Nombre completo</label>
+                    <input class="field__input" type="text" id="order-name" name="nombre" required autocomplete="name" aria-describedby="order-name-error">
+                    <p class="field__error" id="order-name-error" role="alert" hidden>Escribe tu nombre completo.</p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="order-phone">Número de contacto</label>
+                    <input class="field__input" type="tel" id="order-phone" name="telefono" required inputmode="tel" autocomplete="tel" minlength="7" aria-describedby="order-phone-error">
+                    <p class="field__error" id="order-phone-error" role="alert" hidden>Escribe un número de contacto válido.</p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="order-address">Dirección de entrega (si aplica)</label>
+                    <input class="field__input" type="text" id="order-address" name="direccion" autocomplete="street-address" aria-describedby="order-address-error">
+                    <p class="field__error" id="order-address-error" role="alert" hidden>Revisa la dirección de entrega.</p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="order-notes">Información adicional (opcional)</label>
+                    <textarea class="field__input" id="order-notes" name="notas" rows="3"></textarea>
+                  </div>
+                  <p class="order-form__status" id="order-status" role="status" aria-live="polite"></p>
+                  <button type="submit" class="button button--primary" id="order-submit">REVISAR PEDIDO</button>
+                </form>
+        </div>
+      </details>
+    </div>
+  </aside>
+
+  <!-- Confirmación visual al añadir al carrito -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <!-- ASESORÍA AL CLIENTE -->
+  <!-- Reemplazar href por https://wa.me/NUMERO_CON_CODIGO_DE_PAIS cuando se confirme el número -->
+  <a class="advisor-fab" id="advisor-whatsapp" href="#" data-whatsapp-link aria-label="Hablar con un asesor por WhatsApp (enlace por configurar)">
+    <svg class="icon" aria-hidden="true"><use href="#icon-chat"/></svg>
+    <span class="advisor-fab__label">Asesoría</span>
+  </a>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container site-footer__inner">
+      <a class="brand" href="#inicio" aria-label="MAISON | ALEJO, volver al inicio">MAISON <span class="brand__divider">|</span> ALEJO</a>
+
+      <address class="footer-contact" id="footer-contact">
+        <p><a class="footer-contact__link" href="https://wa.me/573106360200?text=Hola%2C%20quiero%20asesor%C3%ADa%20sobre%20MAISON%20%7C%20ALEJO." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp al +57 310 636 0200 (se abre en una pestaña nueva)"><svg class="footer-contact__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+57 310 636 0200</span></a></p>
+        <p><a class="footer-contact__link" href="https://www.instagram.com/maisonalejo/" target="_blank" rel="noopener" aria-label="Instagram @maisonalejo (se abre en una pestaña nueva)"><svg class="footer-contact__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><defs><linearGradient id="ig-grad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".35" stop-color="#FA7E1E"/><stop offset=".6" stop-color="#D62976"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="url(#ig-grad)" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="url(#ig-grad)" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="url(#ig-grad)"/></svg><span>@maisonalejo</span></a></p>
+      </address>
+
+      <!-- Políticas: agregar enlaces cuando existan las páginas -->
+      <div class="footer-legal" id="footer-legal" data-pending="true">
+        <p>Políticas y condiciones pendientes de publicar.</p>
+      </div>
+
+<details class="footer-info" id="informacion-compra">
+        <summary>Entrega, pagos y cambios</summary>
+        <!-- Textos pendientes: completar solo con información comercial confirmada -->
+        <dl class="footer-info__list">
+          <dt>Entrega</dt><dd data-pending="true">Pendiente de configurar.</dd>
+          <dt>Pagos</dt><dd data-pending="true">Pendiente de configurar.</dd>
+          <dt>Cambios y devoluciones</dt><dd data-pending="true">Pendiente de configurar.</dd>
+        </dl>
+      </details>
+
+            <p class="footer-copy">© <span id="footer-year">2026</span> MAISON | ALEJO. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
